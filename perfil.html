@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Perfil</title>
+</head>
+<style type="text/css">
+    body{
+        font-family: sans-serif;
+        background-color: #F1F5FA;
+    }
+    .content{
+        margin: auto;
+        background-color: #D8D3FF;
+        width: 40%;
+        height: 600px;
+        border-radius: 20px;
+        align-content: center;
+        align-items: center;
+        padding: 15px;
+        display: block;
+        text-align: center;
+        display: block;
+    }
+    .info{
+        margin: auto;
+
+    }
+    .info img{
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+    .info  #usuario{
+        margin-bottom: 10px;
+        margin-top: 40px;
+    }
+    .actions a{
+        text-decoration: none;
+        color: #2F2E35;
+    }
+    .actions button{
+      
+        margin: 20px;
+       
+        //
+        font-weight: 700;
+        color: #2F2E35;
+        padding: 9px 25px;
+        background-color: #EFEDFF;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease 0;
+    }
+    .actions button:hover{
+        background-color: #ffff;
+        color: #7361E8;
+        transform: scale(1.1);
+    }
+</style>
+<body>
+
+    <div class="content">
+
+      
+
+       <div class="info">
+         <img src="Lindopanda.jpg">
+         <h1 id="usuario"></h1> 
+             <h1 id="nombres"></h1>
+             <h2 id="apellidos"></h2>
+                <p id="edad"></p>
+       </div>
+
+       <div class="actions">
+       <button><a id="correo" href="">Enviar correo</a></button> 
+        <button><a id="tel" href="">Telefono</a></button>
+       </div>
+        
+    </div>
+
+      
+   
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+        getParameter=(key)=>{
+            addres=window.location.search;
+            ParameterList=new URLSearchParams (addres);
+            return ParameterList.get(key)
+        }
+        console.log(getParameter("nombre"));
+        var nombres=getParameter("nombre");
+        console.log(getParameter("usuario"));
+        var usuario=getParameter("usuario");
+        console.log(getParameter("paterno"));
+        var paterno=getParameter("paterno");
+        console.log(getParameter("materno"));
+        var materno=getParameter("materno");
+        console.log(getParameter("correo"));
+        var correo=getParameter("correo");
+        console.log(getParameter("numero"));
+        var numero=getParameter("numero");
+        console.log(getParameter("usuario"));
+        var usuario=getParameter("usuario");
+        console.log(getParameter("contraseña"));
+        var contraseña=getParameter("contraseña");
+        document.getElementById("nombres").innerHTML = nombres;
+        document.getElementById("usuario").innerHTML = usuario;
+        document.getElementById("apellidos").innerHTML= paterno.concat(" ",materno);
+        var enlace=document.getElementById("correo");
+        enlace.href = "mailto:" +correo;
+        var tel=document.getElementById("tel");
+        tel.href="tel:"+numero;
+
+        //CALCULA EDAD
+       var nac = getParameter("nacimiento");
+            var fecha = new Date(nac);
+            var anio = fecha.getFullYear();
+
+            var edad = new Date().getFullYear() - anio;
+
+          document.getElementById("edad").innerHTML = edad;
+     
+
+    </script>
+    
+
+</body>
+</html>
