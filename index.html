@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+</head>
+<style>
+    body{
+        font-family: sans-serif;
+        background-color: #8EC5FC;
+        background-image: linear-gradient(62deg, #8EC5FC 20%, #a579ca 100%);
+
+    }
+    .content{
+        margin-top: 30px;
+    }
+    form{
+        width: 35%;
+        margin: auto;
+        background-color: #ffffff;
+        box-shadow: 3px;
+        display: flexbox;
+        padding: 10px;
+        border-radius: 20px;
+        text-align: center;
+        letter-spacing: 8px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    form input{
+        top: 10px;
+        width: 60%;
+        height: 25px;
+        display: block;
+        margin: auto;
+        border-radius: 10px;
+        text-align: center;
+        border: none;
+        background-color: #F1F5FA;
+        
+    }
+    h2{
+        color: #7BA4CA;
+    }
+</style>
+<body>
+    <div class="content">
+        <form action="perfil.html" method="get" onsubmit="return validar()">
+          <h2>Registro</h2>
+          <br>
+          <input type="text" placeholder="Nombres" name="nombre"><br>
+          <input type="text" placeholder="Apellido paterno" name="paterno"><br>
+          <input type="text" placeholder="Apellido materno" name="materno"><br>
+          <input type="email" placeholder="user@gmail.com" name="correo"><br>
+          <input type="date" name="nacimiento"><br>
+          <input type="number" placeholder="7771423633" name="numero"><br>
+          <input type="text" placeholder="User_VC" name="usuario"><br>
+          <input type="password" placeholder="Contraseña" name="contraseña"><br>
+          <input type="password" placeholder="Confirmar contraseña" name="confirmar"><br>
+          <input type="submit" value="Registrar">
+        </form>
+    </div>
+        <script>
+          function validar() {
+            var contraseña = document.getElementsByName("contraseña")[0].value;
+            var confirmar = document.getElementsByName("confirmar")[0].value;
+
+            if (contraseña.length < 5) {
+              alert("La contraseña debe tener al menos 5 caracteres.");
+              return false;
+            }
+
+            if (contraseña !== confirmar) {
+              alert("Las contraseñas no coinciden.");
+              return false;
+            }
+
+            return true;
+          }
+        </script>
+
+    
+    
+</body>
+</html>
